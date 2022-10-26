@@ -1,0 +1,35 @@
+--Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, category TEXT, stock INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, "Pear-Asian 20th Century", "fruit tree", 15, 159.95);
+INSERT INTO store VALUES (2, "Plum-Elephant Heart", "fruit tree", 12, 139.95);
+INSERT INTO store VALUES (3, "Banana Fruiting", "palm", 20, 89.95);
+INSERT INTO store VALUES (4, "Moss Irish", "ground cover", 12, 6.99);
+INSERT INTO store VALUES (5, "Rosemary Trailing", "ground cover", 1, 25.99);
+INSERT INTO store VALUES (6, "Snow in Summer", "ground cover", 6, 19.69);
+INSERT INTO store VALUES (7, "Tradescantia Purple Heart", "ground cover", 5, 15.00);
+INSERT INTO store VALUES (8, "Windmill Palm", "palm", 30, 59.95);
+INSERT INTO store VALUES (9, "Plum-Santa Rosa", "fruit tree", 15, 109.95);
+INSERT INTO store VALUES (10, "Trumpet Vine Venesta Flame", "vine", 1, 19.99); 
+INSERT INTO store VALUES (11, "Trumpet Vine Violet", "vine", 5, 17.95);
+INSERT INTO store VALUES (12, "Wisteria Blue", "vine", 15, 26.70);
+INSERT INTO store VALUES (13, "Wisteria White", "vine", 15, 31.99);
+INSERT INTO store VALUES (14, "Asparagus Meyeri Fern", "fern", 6, 18.99);
+INSERT INTO store VALUES (15, "Japanese Holly Fern", "fern", 2, 22.98);
+
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER by price asc;
+
+--what is the avg price of plants in the ground cover category? 
+SELECT AVG(price) "avg ground cover price"
+FROM store 
+WHERE category = 'ground cover';
+
+--which plants should be ordered to ensure 10 of each plant is in stock?
+SELECT id, name, category, stock
+FROM store
+WHERE stock <10
+ORDER by stock;
